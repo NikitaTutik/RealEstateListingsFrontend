@@ -1,0 +1,14 @@
+.App {
+    display: flex;
+    place-items: center;
+  }
+  
+.card-container {
+  display: grid;
+  padding: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: var(--space-lg);
+}
