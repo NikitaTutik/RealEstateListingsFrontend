@@ -16,7 +16,7 @@
     transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
     background-color: var(--fill);
     color: var(--type);
-    max-width: max-content;
+    max-width: 300px;
   }
   
   .btn svg {
