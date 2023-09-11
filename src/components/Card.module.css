@@ -8,6 +8,7 @@
   border-top: .1em solid white;
   border-left: .1em solid white;
   max-width: var(--content);
+  max-height: 2000px;
 }
 
 .body {

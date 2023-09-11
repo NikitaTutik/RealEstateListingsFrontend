@@ -27,7 +27,7 @@
   --space-sm: clamp(0.4rem, 1.5vw, .8rem);
   --space-md: clamp(1rem, 2.5vw, 1.4rem);
   --space-lg: clamp(2rem, 4vw, 2.2rem);
-  --content: 30ch;
+  --content: 35ch;
   --round-sm: 4px;
   --round-md: 10px;
   --round-lg: 15px;
