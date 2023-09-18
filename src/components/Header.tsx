@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Header = () => {
   const value = useContext(AuthContext);
@@ -8,11 +8,12 @@ const Header = () => {
 
   return (
     <div>
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <p>{auth?.username}</p>
-    </div>
-  )
-}
+      <Link to="/">Home </Link>
+      {auth && auth.username}
+      {auth ? <Link to="#"> Logout</Link> : <Link to="/login">Login</Link>}
 
-export default Header
+    </div>
+  );
+};
+
+export default Header;

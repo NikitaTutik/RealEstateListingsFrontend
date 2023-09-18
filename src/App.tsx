@@ -20,7 +20,6 @@ function App() {
             <Route Component={AdPage} path="/"/>
           </Route>
             <Route Component={LoginPage} path="/login" />
-
         </Routes>
       </AuthProvider>
     </Router>

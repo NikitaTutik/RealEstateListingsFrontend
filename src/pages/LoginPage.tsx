@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const value = useContext(AuthContext);
+  const navigate = useNavigate();
 
   async function handleLogin(event: React.FormEvent) {
     event.preventDefault();
@@ -18,7 +20,7 @@ const LoginPage = () => {
       headers: { "Content-Type": "application/json" },
     });
 
-    const decodedToken: any = jwt_decode(res.data.access)
+    const decodedToken: any = jwt_decode(res.data.access);
 
     if (res.status === 200) {
       value?.setAuth({
@@ -27,11 +29,11 @@ const LoginPage = () => {
         token: res.data.access,
         getAuth: true,
       });
+      localStorage.setItem("authTokens", JSON.stringify(res.data));
+      navigate("/");
     } else {
       alert("Wrong credentials " + res.status);
     }
-
-    console.log(value)
   }
 
   return (
