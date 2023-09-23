@@ -5,12 +5,13 @@ import { AuthContext } from "../context/AuthContext";
 const Header = () => {
   const value = useContext(AuthContext);
   const auth = value?.auth;
+  const logoutUser = value?.logoutUser;
 
   return (
     <div>
       <Link to="/">Home </Link>
       {auth && auth.username}
-      {auth ? <Link to="#"> Logout</Link> : <Link to="/login">Login</Link>}
+      {auth ? <p onClick={() => logoutUser()}> Logout</p> : <Link to="/login">Login</Link>}
 
     </div>
   );

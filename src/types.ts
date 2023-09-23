@@ -31,6 +31,7 @@ export interface IAuth {
 export interface IAuthContext {
   auth: IAuth;
   setAuth: (state: IAuth) => void;
+  logoutUser: { () : void } | null;
 }
 
 export interface ChildrenProps {
