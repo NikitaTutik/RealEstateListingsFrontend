@@ -11,8 +11,7 @@ const Header = () => {
     <div>
       <Link to="/">Home </Link>
       {auth && auth.username}
-      {auth ? <p onClick={() => logoutUser()}> Logout</p> : <Link to="/login">Login</Link>}
-
+      {auth?.getAuth ? <p onClick={() => logoutUser()}> Logout</p> : <Link to="/login">Login</Link>}
     </div>
   );
 };

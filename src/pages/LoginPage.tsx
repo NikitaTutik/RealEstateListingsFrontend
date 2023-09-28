@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -55,6 +56,7 @@ const LoginPage = () => {
         />
         <input type="submit" onClick={handleLogin} />
       </form>
+      <p>Create an account <Link to="/signup">Sign up</Link></p>
     </div>
   );
 };

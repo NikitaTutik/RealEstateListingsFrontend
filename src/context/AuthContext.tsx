@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }: ChildrenProps) => {
   };
 
   let updateToken = async () => {
-    console.log("sdfsdf");
+
     const response = await axios.post(
       "https://real-estate-listingsapi.onrender.com/api/token/refresh/",
       { refresh: JSON.parse(localStorage.getItem("authTokens")!)?.refresh },
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }: ChildrenProps) => {
       if (auth.token) {
         updateToken();
       }
-    }, 2000);
+    }, 1000 * 60 * 4);
     return () => clearInterval(interval);
   }, [auth, loading]);
 
