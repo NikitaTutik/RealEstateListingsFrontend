@@ -7,7 +7,6 @@ import Header from "./components/Header";
 import PrivateRoute from "./utils/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 
-
 function App() {
 
   return (

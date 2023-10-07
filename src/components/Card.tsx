@@ -2,6 +2,8 @@ import { CardInterface } from "../types";
 import Badge from "./Badge";
 import Button from "./Button";
 import styles from "./Card.module.css";
+import ImageSlider from "./ImageSlider";
+
 
 const Card = ({
   body,
@@ -18,12 +20,12 @@ const Card = ({
 
       {badge && <Badge text={badge.text} filled={badge.filled} />}
 
-      {image &&
-        image.map(({ id, photos }: any) => (
-          <div key={id}>
-            <img src={photos} alt="property image" className={styles.image} />
-          </div>
-        ))}
+      {image && <ImageSlider images={image}/> }
+        {/* // image.map(({ id, photos }: any) => (
+        //   <div key={id}>
+        //     <img src={photos} alt="property image" className={styles.image} />
+        //   </div>
+        // ))} */}
 
       <div className="stack-sm">
         <h3 className={styles.title}>{title}</h3>

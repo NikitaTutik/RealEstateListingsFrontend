@@ -19,7 +19,7 @@
   width: 100%;
   max-width: 100%;
   aspect-ratio: 11/10;
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: var(--round-md);
 
 }

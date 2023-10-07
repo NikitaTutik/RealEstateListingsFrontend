@@ -37,3 +37,7 @@ export interface IAuthContext {
 export interface ChildrenProps {
   children: React.ReactNode;
 }
+
+export interface ImageSliderProps {
+  images: string[];
+}
