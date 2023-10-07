@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import { useEffect, useState } from "react";
 
 const AdPage = () => {
-  const [apiData, setApiData] = useState([]);
+  const [apiData, setApiData] = useState([] as any[]);
 
   const fetchApiData = async () => {
     const { data } = await axios.get(
@@ -21,13 +21,14 @@ const AdPage = () => {
   return (
     <section>
       <div className="card-container">
-        {apiData.map(({ id, title ,description, location }) => (
+        {apiData.map(({ id, title, description, location, photos }) => (
           <p key={id}>
             <Card
               body={location}
               title={title}
               subtitle={description}
-              image="https://source.unsplash.com/random"
+              // image={photos.map(({id, photos} : any) => {return <li key={id}>{photos}</li>})}
+              image={photos}
               indicator=""
               btn={{
                 text: "buy",
