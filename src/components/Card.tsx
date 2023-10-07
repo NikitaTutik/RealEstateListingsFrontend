@@ -2,7 +2,6 @@ import { CardInterface } from "../types";
 import Badge from "./Badge";
 import Button from "./Button";
 import styles from "./Card.module.css";
-import ImageSlider from "./ImageSlider";
 
 const Card = ({
   body,
