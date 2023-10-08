@@ -2,20 +2,21 @@
     --type: transparent;
     --fill: transparent;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: var(--space-sm);
     font-size: var(--fs-300);
     line-height: var(--lh-1);
     text-decoration: none;
     cursor: pointer;
-    padding: .5em 1em;
+    padding: .3em 1em;
     border-width: .1em;
     border-style: solid;
-    border-color: var(--type);
+    border-color: #333;
     border-radius: var(--round-sm);
     transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
     background-color: var(--fill);
-    color: var(--type);
+    color: #333;
     max-width: 300px;
   }
   
@@ -29,7 +30,7 @@
   
   .btn:is(:hover, :focus-visible){
     box-shadow:
-      0 0 0 3px hsl(var(--bkg)),
+      0 0 0 4px hsl(var(--bkg)),
       0 0 0 6px var(--type);
   }
   

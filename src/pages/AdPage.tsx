@@ -1,4 +1,4 @@
-import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { BuildingOfficeIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
@@ -22,23 +22,22 @@ const AdPage = () => {
     <section>
       <div className="card-container">
         {apiData.map(({ id, title, description, location, photos }) => (
-          <p key={id}>
+          <div key={id}>
             <Card
               body={location}
               title={title}
               subtitle={description}
-              // image={photos.map(({id, photos} : any) => {return <li key={id}>{photos}</li>})}
               image={photos}
               indicator=""
               btn={{
-                text: "buy",
+                text: "Details",
                 href: "#",
                 type: "primary",
                 filled: false,
-                icon: <PaperAirplaneIcon />,
+                icon: <BuildingOfficeIcon />,
               }}
             />
-          </p>
+          </div>
         ))}
       </div>
     </section>
