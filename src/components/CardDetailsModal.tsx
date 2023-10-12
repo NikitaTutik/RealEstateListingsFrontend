@@ -1,13 +1,8 @@
-import {ReactElement } from "react";
 import styles from "./CardDetailsModal.module.css";
+import { CardDetailsModalProps } from "../types";
 
-interface ModalProps {
-    open: boolean;
-    onClose: () => void;
-    children?: ReactElement|ReactElement[];
-}
 
-const CardDetailsModal = ({ open, onClose, children}: ModalProps) => {
+const CardDetailsModal = ({ open, onClose, children}: CardDetailsModalProps) => {
     return (
         <div className={open ? styles.modal : styles['modal-display-none']}>
             <div className={styles['modal-main']}>

@@ -1,3 +1,5 @@
+import {ReactElement } from "react";
+
 export interface BadgeInterface {
   text: string;
   filled?: boolean;
@@ -40,4 +42,10 @@ export interface ChildrenProps {
 
 export interface ImageSliderProps {
   images: string[];
+}
+
+export interface CardDetailsModalProps {
+  open: boolean;
+  onClose: () => void;
+  children?: ReactElement|ReactElement[];
 }
