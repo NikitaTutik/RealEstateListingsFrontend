@@ -19,6 +19,7 @@ const AdPage = () => {
   }, []);
 
   return (
+    <body id="ad-page">
     <section>
       <div className="card-container">
         {apiData.map(({ id, title, description, location, photos }) => (
@@ -41,6 +42,7 @@ const AdPage = () => {
         ))}
       </div>
     </section>
+    </body>
   );
 };
 

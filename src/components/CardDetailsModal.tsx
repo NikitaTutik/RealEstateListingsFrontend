@@ -1,4 +1,4 @@
-import styles from "./CardDetailsModal.module.css";
+import styles from "./component_css/CardDetailsModal.module.css";
 import { CardDetailsModalProps } from "../types";
 
 

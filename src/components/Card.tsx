@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CardInterface } from "../types";
 import Badge from "./Badge";
 import Button from "./Button";
-import styles from "./Card.module.css";
+import styles from "./component_css/Card.module.css";
 import ImageSlider from "./ImageSlider";
 import CardDetailsModal from "./CardDetailsModal";
 

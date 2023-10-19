@@ -38,11 +38,11 @@
   --round-full: 100vmax;
 }
 
-body {
+#ad-page {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  padding: var(--space-lg);
+  padding: var(--space-sm);
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: var(--fs-400);
   line-height: var(--lh-1-4);
@@ -52,9 +52,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-color: hsl(var(--bkg));
+  background-color: #ffffff;
   color: hsl(var(--text));
 }
+
+#new-ad-page {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin:0 auto ;
+  width: 30%;
+  min-height: 90vh;
+  padding: var(--space-sm);
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  background-color: #ffffff;
+}
+
 
 h1,
 h2,

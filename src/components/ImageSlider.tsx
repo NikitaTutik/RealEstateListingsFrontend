@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styles from "./ImageSlider.module.css";
-import CardStyles from "./Card.module.css";
+import styles from "./component_css/ImageSlider.module.css";
+import CardStyles from "./component_css/Card.module.css";
 import { ImageSliderProps } from "../types";
 
 

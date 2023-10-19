@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -20,41 +19,40 @@ const SignUpPage = () => {
     });
 
     if (res.status === 201) {
-      navigate('/');
+      navigate("/");
     } else {
       alert("Something went wrong " + res.status);
     }
   }
 
   return (
-    <div>
-      <form>
-        <input
-          type="email"
-          name="email"
-          onChange={(e) => setEmail(e.currentTarget.value)}
-          value={email}
-          placeholder="Enter email"
-        />
-        <input
-          type="username"
-          name="username"
-          onChange={(e) => setUsername(e.currentTarget.value)}
-          value={username}
-          placeholder="Enter username"
-        />
-        <input
-          type="password"
-          name="password"
-          onChange={(e) => setPassword(e.currentTarget.value)}
-          value={password}
-          placeholder="Enter password"
-        />
-        <input type="submit" onClick={handleSignup} />
-      </form>
-    </div>
+      <div>
+        <form>
+          <input
+            type="email"
+            name="email"
+            onChange={(e) => setEmail(e.currentTarget.value)}
+            value={email}
+            placeholder="Enter email"
+          />
+          <input
+            type="username"
+            name="username"
+            onChange={(e) => setUsername(e.currentTarget.value)}
+            value={username}
+            placeholder="Enter username"
+          />
+          <input
+            type="password"
+            name="password"
+            onChange={(e) => setPassword(e.currentTarget.value)}
+            value={password}
+            placeholder="Enter password"
+          />
+          <input type="submit" onClick={handleSignup} />
+        </form>
+      </div>
   );
 };
 
-
-export default SignUpPage
+export default SignUpPage;

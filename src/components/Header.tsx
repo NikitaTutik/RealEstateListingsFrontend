@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import NewAdButton from "./NewAdButton";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link as LinkUI,
+  Link,
   Button,
   DropdownItem,
   DropdownTrigger,
@@ -20,11 +20,18 @@ const Header = () => {
   const logoutUser = value?.logoutUser;
 
   return (
-    <Navbar>
+    <Navbar position="sticky" isBordered>
       <NavbarBrand>
         <p className="font-bold text-inherit">Rentie</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className=" sm:flex gap-4" justify="start">
+        <NavbarItem isActive>
+          <Link href="/" aria-current="page">
+            Home
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end">
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
@@ -39,7 +46,7 @@ const Header = () => {
             </DropdownTrigger>
           </NavbarItem>
           <DropdownMenu
-            aria-label="ACME features"
+            aria-label="Profile"
             className="w-[340px]"
             itemClasses={{
               base: "gap-4",
@@ -47,41 +54,34 @@ const Header = () => {
           >
             <DropdownItem
               key="autoscaling"
-              description="ACME scales apps to meet user demand, automagically, based on load."
+              description="View or edit your profile"
             >
-              Autoscaling
+              Profile
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <NavbarItem isActive>
-          <LinkUI href="#" aria-current="page">
-            GGG
-          </LinkUI>
-        </NavbarItem>
         <NavbarItem>
-          <LinkUI color="foreground" href="#">
-            Integrations
-          </LinkUI>
+          <NewAdButton />
         </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className=" lg:flex">{auth && auth.username}</NavbarItem>
         <NavbarItem className=" lg:flex">
-          <LinkUI href="#">Login</LinkUI>
+          {auth?.getAuth ? (
+            <Button onClick={() => logoutUser()}> Logout</Button>
+          ) : (
+            <Button as={Link} color="primary" href="/login" variant="flat">
+              Login
+            </Button>
+          )}
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
+          {auth?.getAuth ? (
+            ""
+          ) : (
+            <Button as={Link} color="primary" href="#" variant="flat">
+              Sign Up
+            </Button>
+          )}
         </NavbarItem>
       </NavbarContent>
-
-      <LinkUI href="/">Home </LinkUI>
-      {auth?.getAuth ? (
-        <p onClick={() => logoutUser()}> Logout</p>
-      ) : (
-        <Link to="/login">Login</Link>
-      )}
     </Navbar>
   );
 };
