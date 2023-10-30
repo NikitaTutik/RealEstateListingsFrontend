@@ -20,7 +20,7 @@ const Header = () => {
   const logoutUser = value?.logoutUser;
 
   return (
-    <Navbar position="sticky" isBordered>
+    <Navbar position="sticky" isBordered >
       <NavbarBrand>
         <p className="font-bold text-inherit">Rentie</p>
       </NavbarBrand>

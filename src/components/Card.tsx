@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { CardInterface } from "../types";
-import Badge from "./Badge";
-import Button from "./Button";
 import styles from "./component_css/Card.module.css";
 import ImageSlider from "./ImageSlider";
 import CardDetailsModal from "./CardDetailsModal";
+import {
+  Card as Cards,
+  CardHeader,
+  CardBody,
+  Button,
+} from "@nextui-org/react";
 
 const Card = ({
   body,
-  btn,
   subtitle,
   title,
-  badge,
   image,
-  indicator,
 }: CardInterface) => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -21,17 +22,15 @@ const Card = ({
     setShowModal(!showModal);
   }
   return (
-    <article className={`stack-sm ${styles.card}`}>
-      {indicator && <small className={styles.indicator}>{indicator}</small>}
-
-      {badge && <Badge text={badge.text} filled={badge.filled} />}
-
-      {image && <ImageSlider images={image} />}
-
-      <div className="stack-sm">
-        <h3 className={styles.title}>{title}</h3>
-        {subtitle && <small className={styles.title}>{subtitle}</small>}
-      </div>
+    <Cards className="py-4">
+      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+        <p className="text-tiny uppercase font-bold">{title}</p>
+        <small className="text-default-500">{body}</small>
+        <h4 className="font-bold text-large">{subtitle}</h4>
+      </CardHeader>
+      <CardBody className="overflow-visible py-2">
+        {image && <ImageSlider images={image} />}
+      </CardBody>
 
       <CardDetailsModal open={showModal} onClose={toggleModal}>
         <>{image && <ImageSlider images={image} />}</>
@@ -40,16 +39,16 @@ const Card = ({
         <div className={styles.body}>{body}</div>
       </CardDetailsModal>
 
-      <div onClick={toggleModal}>
-        <Button
-          filled={btn.filled}
-          type={btn.type}
-          text={btn.text}
-          href={btn.href}
-          icon={btn.icon}
-        />
-      </div>
-    </article>
+      <Button
+        size="md"
+        radius="sm"
+        onPress={toggleModal}
+        color="primary"
+        variant="light"
+      >
+        Details
+      </Button>
+    </Cards>
   );
 };
 

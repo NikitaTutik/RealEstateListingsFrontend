@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styles from "./component_css/ImageSlider.module.css";
-import CardStyles from "./component_css/Card.module.css";
 import { ImageSliderProps } from "../types";
-
+import { Image } from "@nextui-org/react";
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   let imgurl: any = images.map(({ photos }: any) => photos);
@@ -22,10 +21,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
 
   return (
     <div className={styles.imageslidercontainer}>
-      <img
-        src={imgurl[currentIndex]}
-        className={CardStyles.image}
+      <Image style={{height:200, width:300}}
+        width={300}
+        height={200}
         alt={`Image ${currentIndex + 1}`}
+        src={imgurl[currentIndex]}
       />
       <div className={styles.dotscontainer}>
         {images.map((_, index) => (
@@ -36,10 +36,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
           ></span>
         ))}
       </div>
-      <section className={styles.sides}>
+      <div className={styles.sides}>
         <div onClick={prevSlide}>{String.fromCharCode(8592)}</div>
         <div onClick={nextSlide}>{String.fromCharCode(8594)}</div>
-      </section>
+      </div>
     </div>
   );
 };

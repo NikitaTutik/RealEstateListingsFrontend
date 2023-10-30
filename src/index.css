@@ -41,11 +41,11 @@
 #ad-page {
   display: grid;
   place-items: center;
-  min-height: 100vh;
+  min-height: 50vh;
   padding: var(--space-sm);
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: var(--fs-400);
-  line-height: var(--lh-1-4);
+  font-size: var(--fs-300);
+  line-height: var(--lh-1);
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
