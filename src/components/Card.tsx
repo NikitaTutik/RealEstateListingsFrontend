@@ -38,16 +38,6 @@ const Card = ({
         <small className={styles.title}>{subtitle}</small>
         <div className={styles.body}>{body}</div>
       </CardDetailsModal>
-
-      <Button
-        size="md"
-        radius="sm"
-        onPress={toggleModal}
-        color="primary"
-        variant="light"
-      >
-        Details
-      </Button>
     </Cards>
   );
 };

@@ -13,6 +13,8 @@ import {
   Dropdown,
   DropdownMenu,
 } from "@nextui-org/react";
+import LoginPage from "../pages/LoginPage";
+import SignUpPage from "../pages/SignUpPage";
 
 const Header = () => {
   const value = useContext(AuthContext);
@@ -20,7 +22,7 @@ const Header = () => {
   const logoutUser = value?.logoutUser;
 
   return (
-    <Navbar position="sticky" isBordered >
+    <Navbar position="sticky" isBordered>
       <NavbarBrand>
         <p className="font-bold text-inherit">Rentie</p>
       </NavbarBrand>
@@ -45,7 +47,7 @@ const Header = () => {
               </Button>
             </DropdownTrigger>
           </NavbarItem>
-          <DropdownMenu
+          {auth?.getAuth ? <DropdownMenu
             aria-label="Profile"
             className="w-[340px]"
             itemClasses={{
@@ -58,27 +60,24 @@ const Header = () => {
             >
               Profile
             </DropdownItem>
-          </DropdownMenu>
+          </DropdownMenu>: ""}
+          
         </Dropdown>
         <NavbarItem>
-          <NewAdButton />
+          {auth?.getAuth ? <NewAdButton /> : ""}
         </NavbarItem>
         <NavbarItem className=" lg:flex">
           {auth?.getAuth ? (
-            <Button onClick={() => logoutUser()}> Logout</Button>
+            <Button onClick={() => logoutUser()}>Logout</Button>
           ) : (
-            <Button as={Link} color="primary" href="/login" variant="flat">
-              Login
-            </Button>
+            <LoginPage />
           )}
         </NavbarItem>
         <NavbarItem>
           {auth?.getAuth ? (
             ""
           ) : (
-            <Button as={Link} color="primary" href="#" variant="flat">
-              Sign Up
-            </Button>
+            <SignUpPage/>
           )}
         </NavbarItem>
       </NavbarContent>

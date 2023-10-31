@@ -1,23 +1,70 @@
-import styles from "./component_css/CardDetailsModal.module.css";
+import React from "react";
 import { CardDetailsModalProps } from "../types";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
 
+export default function CardDetailsModal({ children }: CardDetailsModalProps) {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-const CardDetailsModal = ({ open, onClose, children}: CardDetailsModalProps) => {
-    return (
-        <div className={open ? styles.modal : styles['modal-display-none']}>
-            <div className={styles['modal-main']}>
-                <div className={styles['modal-head']}>
-                    <h1>Property title</h1>
-                </div>
-                <div className={styles['modal-body']}>
-                    {children}
-                </div>
-                <div className="btn-container">
-                    <button type="button" className="btn" onClick={onClose}>Close</button>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <>
+      <Button
+        size="md"
+        radius="sm"
+        onPress={onOpen}
+        color="primary"
+        variant="light"
+      >
+        Details
+      </Button>
+      <Modal
+        backdrop="opaque"
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        motionProps={{
+          variants: {
+            enter: {
+              y: 0,
+              opacity: 1,
+              transition: {
+                duration: 0.3,
+                ease: "easeOut",
+              },
+            },
+            exit: {
+              y: -20,
+              opacity: 0,
+              transition: {
+                duration: 0.2,
+                ease: "easeIn",
+              },
+            },
+          },
+        }}
+      >
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                Modal Title
+              </ModalHeader>
+              <ModalBody>{children}</ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
+  );
 }
-
-export default CardDetailsModal
