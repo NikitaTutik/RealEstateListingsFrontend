@@ -1,4 +1,3 @@
-import React from "react";
 import { CardDetailsModalProps } from "../types";
 import {
   Modal,
@@ -16,15 +15,17 @@ export default function CardDetailsModal({ children }: CardDetailsModalProps) {
   return (
     <>
       <Button
-        size="md"
+        size="sm"
         radius="sm"
         onPress={onOpen}
         color="primary"
         variant="light"
       >
-        Details
+        Click for details
       </Button>
+
       <Modal
+        size="lg"
         backdrop="opaque"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
@@ -49,10 +50,10 @@ export default function CardDetailsModal({ children }: CardDetailsModalProps) {
           },
         }}
       >
-        <ModalContent>
+        <ModalContent style={{width:"1000px", height:"700px",maxWidth:"1000px", maxHeight:"1000px"}}>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
+              <ModalHeader style={{maxWidth:"500%", height:"500px"}}className="flex flex-col gap-1">
                 Modal Title
               </ModalHeader>
               <ModalBody>{children}</ModalBody>

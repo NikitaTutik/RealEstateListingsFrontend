@@ -20,7 +20,8 @@ export interface CardInterface {
   title: string;
   subtitle: string;
   body: string;
-  btn: ButtonInterface;
+  location:string;
+  owner:string
 }
 
 export interface IAuth {
