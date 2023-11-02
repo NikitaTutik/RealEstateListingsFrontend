@@ -3,8 +3,7 @@ import { CardInterface } from "../types";
 import ImageSlider from "./ImageSlider";
 import CardDetailsModal from "./CardDetailsModal";
 import { Card as Cards, CardHeader, CardBody } from "@nextui-org/react";
-import ImageGrid from "./ImageGrid";
-
+import styles from "./component_css/ImageGrid.module.css";
 
 const Card = ({
   body,
@@ -13,7 +12,7 @@ const Card = ({
   image,
   location,
   owner,
-  price
+  price,
 }: CardInterface) => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -33,7 +32,19 @@ const Card = ({
 
       <CardDetailsModal open={showModal} onClose={toggleModal}>
         {/* <>{image && <ImageSlider images={image} />}</> */}
-        
+        <div className={styles.row}>
+          {image?.map((imageobj: any) => (
+            <div className={styles.column}>
+              <img
+                style={{ height: 200, width: 300 }}
+                key={imageobj.id}
+                src={imageobj.photos}
+                alt={`Image ${imageobj.id}`}
+              />
+            </div>
+          ))}
+        </div>
+
         <h3>{title}</h3>
         <small>{subtitle}</small>
         <div>{body}</div>
