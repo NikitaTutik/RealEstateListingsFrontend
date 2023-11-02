@@ -53,7 +53,7 @@ export default function CardDetailsModal({ children }: CardDetailsModalProps) {
         <ModalContent style={{width:"1000px", height:"700px",maxWidth:"1000px", maxHeight:"1000px"}}>
           {(onClose) => (
             <>
-              <ModalHeader style={{maxWidth:"500%", height:"500px"}}className="flex flex-col gap-1">
+              <ModalHeader style={{maxWidth:"1000px", height:"500px"}}className="flex flex-col gap-1">
                 Modal Title
               </ModalHeader>
               <ModalBody>{children}</ModalBody>

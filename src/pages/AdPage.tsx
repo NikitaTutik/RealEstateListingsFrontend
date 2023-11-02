@@ -21,7 +21,7 @@ const AdPage = () => {
     <body id="ad-page">
     <section>
       <div className="card-container">
-        {apiData.map(({ id, body, title, description, location, photos, owner_username }) => (
+        {apiData.map(({ id, body, title, description, location, photos, owner_username, price }) => (
           <div key={id}>
             <Card
               body={body}
@@ -31,6 +31,7 @@ const AdPage = () => {
               image={photos}
               indicator=""
               owner={owner_username}
+              price={price}
             />
           </div>
         ))}

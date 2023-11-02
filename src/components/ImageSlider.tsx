@@ -25,10 +25,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
         <div className={styles.sides}>
           <button onClick={prevSlide}>❰</button>
         </div>
-        <Image
-          style={{ height: 200, width: 300 }}
-          width={300}
-          height={200}
+        <Image style={{width:"300px", height:"200px"}}
           alt={`Image ${currentIndex + 1}`}
           src={imgurl[currentIndex]}
         />

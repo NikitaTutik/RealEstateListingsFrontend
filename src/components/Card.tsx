@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { CardInterface } from "../types";
-import styles from "./component_css/Card.module.css";
 import ImageSlider from "./ImageSlider";
 import CardDetailsModal from "./CardDetailsModal";
-import { Card as Cards, CardHeader, CardBody, Button } from "@nextui-org/react";
-import ImageList from "./ImageList";
+import { Card as Cards, CardHeader, CardBody } from "@nextui-org/react";
+import ImageGrid from "./ImageGrid";
+
 
 const Card = ({
   body,
@@ -13,6 +13,7 @@ const Card = ({
   image,
   location,
   owner,
+  price
 }: CardInterface) => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -31,12 +32,14 @@ const Card = ({
       </CardBody>
 
       <CardDetailsModal open={showModal} onClose={toggleModal}>
-        <>{image && <ImageSlider images={image} />}</>
+        {/* <>{image && <ImageSlider images={image} />}</> */}
+        
         <h3>{title}</h3>
         <small>{subtitle}</small>
         <div>{body}</div>
         <div>{location}</div>
         <small className="text-default-500">Posted by: {owner}</small>
+        <div>{price}$</div>
       </CardDetailsModal>
     </Cards>
   );
