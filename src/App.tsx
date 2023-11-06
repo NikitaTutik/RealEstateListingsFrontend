@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import PrivateRoute from "./utils/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 import { NextUIProvider } from "@nextui-org/react";
+import { UserProfile } from "./pages/UserProfile";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             </Route>
             <Route Component={NewAdPage} path="/newad" />
             <Route Component={AdPage} path="/" />
+            <Route Component={UserProfile} path="/account"/>
           </Routes>
         </AuthProvider>
       </Router>

@@ -15,11 +15,13 @@ import {
 } from "@nextui-org/react";
 import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const value = useContext(AuthContext);
   const auth = value?.auth;
   const logoutUser = value?.logoutUser;
+  const navigate = useNavigate(); 
 
   return (
     <Navbar position="sticky" isBordered>
@@ -57,6 +59,7 @@ const Header = () => {
             <DropdownItem
               key="autoscaling"
               description="View or edit your profile"
+              onClick={() => navigate("/account")}
             >
               Profile
             </DropdownItem>

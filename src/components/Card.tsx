@@ -34,7 +34,7 @@ const Card = ({
         {/* <>{image && <ImageSlider images={image} />}</> */}
         <div className={styles.row}>
           {image?.map((imageobj: any) => (
-            <div className={styles.column}>
+            <div className={styles.column} key={imageobj.id}>
               <img
                 style={{ height: 200, width: 300 }}
                 key={imageobj.id}

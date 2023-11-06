@@ -84,22 +84,17 @@ const NewAdPage = () => {
             value={description}
           />
           <Input
-            type="text"
-            label="Price"
+            type="number"
+            placeholder="0.00"
+            labelPlacement="outside"
+            startContent={
+              <div className="pointer-events-none flex items-center">
+                <span className="text-default-400 text-small">$</span>
+              </div>
+            }
             onChange={(e) => setPrice(e.currentTarget.value)}
             value={price}
           />
-
-          <Input
-          type="number"
-          placeholder="0.00"
-          labelPlacement="outside"
-          startContent={
-            <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-small">$</span>
-            </div>
-          }
-        />  
           <Input
             type="text"
             label="Bedrooms"
