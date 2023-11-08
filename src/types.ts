@@ -21,7 +21,7 @@ export interface CardInterface {
   subtitle: string;
   body: string;
   location:string;
-  owner:string;
+  owner:string;   
   price:number;
 }
 

@@ -21,17 +21,24 @@ const Header = () => {
   const value = useContext(AuthContext);
   const auth = value?.auth;
   const logoutUser = value?.logoutUser;
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
     <Navbar position="sticky" isBordered>
       <NavbarBrand>
-        <p className="font-bold text-inherit">Rentie</p>
+        <Link className="font-bold text-inherit" href="/" aria-current="page">
+          <img src="icon.svg" width="50" />
+        </Link>
       </NavbarBrand>
       <NavbarContent className=" sm:flex gap-4" justify="start">
         <NavbarItem isActive>
           <Link href="/" aria-current="page">
             Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/categories" aria-current="page">
+            Categories
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -49,26 +56,27 @@ const Header = () => {
               </Button>
             </DropdownTrigger>
           </NavbarItem>
-          {auth?.getAuth ? <DropdownMenu
-            aria-label="Profile"
-            className="w-[340px]"
-            itemClasses={{
-              base: "gap-4",
-            }}
-          >
-            <DropdownItem
-              key="autoscaling"
-              description="View or edit your profile"
-              onClick={() => navigate("/account")}
+          {auth?.getAuth ? (
+            <DropdownMenu
+              aria-label="Profile"
+              className="w-[340px]"
+              itemClasses={{
+                base: "gap-4",
+              }}
             >
-              Profile
-            </DropdownItem>
-          </DropdownMenu>: ""}
-          
+              <DropdownItem
+                key="autoscaling"
+                description="View or edit your profile"
+                onClick={() => navigate("/account")}
+              >
+                Profile
+              </DropdownItem>
+            </DropdownMenu>
+          ) : (
+            ""
+          )}
         </Dropdown>
-        <NavbarItem>
-          {auth?.getAuth ? <NewAdButton /> : ""}
-        </NavbarItem>
+        <NavbarItem>{auth?.getAuth ? <NewAdButton /> : ""}</NavbarItem>
         <NavbarItem className=" lg:flex">
           {auth?.getAuth ? (
             <Button onClick={() => logoutUser()}>Logout</Button>
@@ -76,13 +84,7 @@ const Header = () => {
             <LoginPage />
           )}
         </NavbarItem>
-        <NavbarItem>
-          {auth?.getAuth ? (
-            ""
-          ) : (
-            <SignUpPage/>
-          )}
-        </NavbarItem>
+        <NavbarItem>{auth?.getAuth ? "" : <SignUpPage />}</NavbarItem>
       </NavbarContent>
     </Navbar>
   );
